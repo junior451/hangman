@@ -3,25 +3,24 @@ import random
 word_list = ["Apple", "Banana", "Orange", "Mango", "Kiwi"]
 
 randomFruit = random.choice(word_list)
-print(randomFruit)
 
-def check_guess(guess):
-  guess = guess.lower()
+def check_guess(guessedLetter):
+  guessedLetter = guessedLetter.lower()
 
-  if guess in randomFruit.lower():
-    print("Good guess! {guess} is in the word.")
+  if guessedLetter in randomFruit.lower():
+    print("Good guess! {guessedLetter} is in the word.")
   else:
-    print("Sorry, {guess} is not in the word. Try again.")
+    print("Sorry, {guessedLetter} is not in the word. Try again.")
 
 def ask_for_input():
   while True:
-    guess = input("Enter a letter to guess")
+    guessedLetter = input("Enter a letter to guess")
 
-    if len(guess) == 1 and guess.isalpha():
+    if len(guessedLetter) == 1 and guessedLetter.isalpha():
       break
     else:
       print("Invalid letter. Please, enter a single alphabetical character.")
 
-  check_guess(guess)    
+  check_guess(guessedLetter)    
 
 ask_for_input()
