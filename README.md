@@ -17,6 +17,11 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 Clone the repo and run python3 milestone.py to start playing the game
 
 ## Usage
+Once the game start, you will be prompted to enter a letter to guess the word
+
+If you guess it correctly, you will be shown a list containing the letters you have guessed so far and in the positon of that letter in the orignal word
+
+If you guess the wrong letter, you will be shown an output saying you have guessed it wrong and your number of lives will also be reduced and shown
 
 ## File Structure
 

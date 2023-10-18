@@ -14,13 +14,16 @@ class Hangman:
 
     if guess in self.word:
       print("Good guess! {guess} is in the word.")
+
       for letter in self.word:
         index = self.word.index(letter)
+
         if letter == guess and self.word_guessed[index] == "_":
           self.word_guessed[index] = letter
         else:
           next
-      self.num_letters = self.word_guessed.count("_")     
+
+      self.num_letters = self.word_guessed.count("_")
     else:
       self.num_lives -= 1
       print("Sorry, {guessedLetter} is not in the word. Try again.")
