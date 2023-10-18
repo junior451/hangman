@@ -15,13 +15,11 @@ class Hangman:
     if guess in self.word:
       print("Good guess! {guess} is in the word.")
 
-      for letter in self.word:
-        index = self.word.index(letter)
-
+      for index, letter in enumerate(self.word):
         if letter == guess and self.word_guessed[index] == "_":
           self.word_guessed[index] = letter
         else:
-          next
+          next  
 
       self.num_letters = self.word_guessed.count("_")
     else:
@@ -33,8 +31,6 @@ class Hangman:
 
   def ask_for_input(self):
     guessed_letter = input("Enter a letter to guess")
-
-    letter_occurence = self.word.count(guessed_letter)
 
     if len(guessed_letter) != 1 and guessed_letter.isalpha() == False:
       print("Invalid letter. Please, enter a single alphabetical character")
