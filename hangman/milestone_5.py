@@ -1,11 +1,11 @@
 import random
 
+
 class Hangman:
   '''
     A Hangman Game that asks the user for a letter and checks if it is in the word.
     It starts with a default number of lives and a random word from the word_list.
 
-    
     Parameters:
     ----------
     word_list: list
@@ -25,14 +25,16 @@ class Hangman:
         The number of UNIQUE letters in the word that have not been guessed yet
     num_lives: int
         The number of lives the player has
+    word_list: list
+        List of words to be used in the game    
     list_letters: list
         A list of the letters that have already been tried
 
     Methods:
     -------
-    check_letter(letter)
-        Checks if the letter is in the word.
-    ask_letter()
+    check_guess(guess)
+        Checks if the guess is in the word.
+    ask_for_input()
         Asks the user for a letter.
     '''
   
@@ -63,9 +65,7 @@ class Hangman:
 
       for index, letter in enumerate(self.__word):
         if letter == guess and self.__word_guessed[index] == "_":
-          self.__word_guessed[index] = letter
-        else:
-          next  
+          self.__word_guessed[index] = guess
 
       self.num_letters = self.__word_guessed.count("_")
     else:
@@ -85,13 +85,13 @@ class Hangman:
 
     guessed_letter = input("Enter a letter to guess")
 
-    if len(guessed_letter) != 1 and guessed_letter.isalpha() == False:
+    if len(guessed_letter) != 1 or guessed_letter.isalpha() == False: # this ensures the user input is a single character
       print("Invalid letter. Please, enter a single alphabetical character")
-    elif guessed_letter in self.__list_of_guesses:
-      print(f"You already tried {guessed_letter}")
+    elif guessed_letter.lower() in self.__list_of_guesses:
+      print(f"You already tried {guessed_letter.lower()}")
     else:
       self.__check_guess(guessed_letter)
-      self.__list_of_guesses.append(guessed_letter)
+      self.__list_of_guesses.append(guessed_letter.lower())
 
 def play_game(word_list):
   '''
@@ -114,5 +114,5 @@ def play_game(word_list):
     elif game.num_lives > 0:
       game.ask_for_input()
 
-play_game(["apple", "orange"])
-
+if __name__ == "__main__":
+  play_game(["apple", "orange"])

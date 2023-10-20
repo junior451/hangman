@@ -46,4 +46,4 @@ If you manage to guess the correct word, you will be shown "Congratulations. You
 
 
 ## License Information
-&nbsp; &nbsp; MIT Lincense
+&nbsp; &nbsp; MIT License
